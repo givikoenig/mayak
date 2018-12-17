@@ -93,7 +93,7 @@
 <script src="{{ asset('assets/js/jquery.goup.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/fancybox/jquery.fancybox-1.2.1.pack.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/fancybox/jquery.fancybox.css') }}" media="screen" />
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIH50GgDpslFv1iAe-lyhZOESBRilYAOQ&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key==initMap"></script>
 <script src="{{ asset('assets/js/map.js') }}"></script>
 <script src="{{ asset('assets/js/functions.js') }}"></script>
 
