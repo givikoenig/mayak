@@ -9,6 +9,7 @@
         "anhskohbo/no-captcha": "^3.0",
         "caouecs/laravel-lang": "~3.0",
         "cybercog/robots-txt": "^1.2",
+        "ellisthedev/laravel-5-robots": "^0.1.0",
         "encore/laravel-admin": "1.5.*",
         "fideloper/proxy": "~3.3",
         "intervention/image": "^2.4",

@@ -10,11 +10,22 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Show;
 
 class TariffsController extends Controller
 {
     use ModelForm;
 
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
+
+            $content->header('Блок "Тарифы"');
+            $content->description('просмотр');
+            $content->body(Admin::show(Tariff::findOrFail($id)));
+        });
+    }
+    
     /**
      * Index interface.
      *
@@ -24,8 +35,8 @@ class TariffsController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('Тарифы');
+            $content->description('описание (отображаться будут все активированные)');
 
             $content->body($this->grid());
         });

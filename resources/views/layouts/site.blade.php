@@ -8,8 +8,8 @@
 <!-- Basic Page Needs -->
 <meta charset="utf-8">
 <title>{{ $title or 'ДОМ НА МОРЕ "У МАЯКА"' }}</title>
-<meta name="description" content="Гостевой дом на Балтийском побережье 'У маяка': аренда, 7000 руб/сутки на 8 человек. Сосны, море, тишина">
-
+<meta name="description" content="{{ $meta_desc  or  'Гостевой дом "У маяка" на Балтийском побережье: аренда, 7000 руб/сутки на 8 человек. Сосны, море, тишина' }}">
+<meta name="keywords" content="{{ $keywords or 'Дом у моря, гостевой дом на побережье, аренда дома у моря, отдых на балтийском побережье' }}">
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/touchTouch.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/css/datepicker.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/weather.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -56,13 +57,15 @@
 </head>
 
 <body>
+
+
 @yield('header')
 <!-- =========================Start Homepage section============================= -->
+<!--<div id="app">-->
 {!! NoCaptcha::renderJs() !!}
 @yield('content')
-
 @yield('map') 
-
+<!--</div>-->
 <!-- Homepage slideshow --> 
 <script src="{{ asset('assets/js/jquery.reveal.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script> 
@@ -86,19 +89,13 @@
 <script src="{{ asset('assets/js/jquery.ui.core.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.ui.widget.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.ui.datepicker.min.js') }}"></script>
-
 <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.goup.min.js') }}"></script>
-
 <script type="text/javascript" src="{{ asset('assets/fancybox/jquery.fancybox-1.2.1.pack.js') }}"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/fancybox/jquery.fancybox.css') }}" media="screen" />
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIH50GgDpslFv1iAe-lyhZOESBRilYAOQ&callback=initMap"></script>
 <script src="{{ asset('assets/js/map.js') }}"></script>
-
 <script src="{{ asset('assets/js/functions.js') }}"></script>
-
-
 
 <!-- Weather widget-->
 <script src="{{ asset('assets/js/jquery.simpleWeather.js') }}"></script> 

@@ -10,10 +10,21 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Show;
 
 class TestimonialsController extends Controller
 {
     use ModelForm;
+    
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
+
+            $content->header('Блок "Обо мне"');
+            $content->description('просмотр');
+            $content->body(Admin::show(Testimonial::findOrFail($id)));
+        });
+    }
 
     /**
      * Index interface.
@@ -25,7 +36,7 @@ class TestimonialsController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('ОТЗЫВЫ');
-            $content->description('СПИСОК');
+            $content->description('СПИСОК (отображаться будут все активированные)');
 
             $content->body($this->grid());
         });

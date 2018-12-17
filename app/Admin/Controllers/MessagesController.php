@@ -10,10 +10,21 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Show;
 
 class MessagesController extends Controller
 {
     use ModelForm;
+    
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
+
+            $content->header('Входящие сообщения');
+            $content->description('просмотр');
+            $content->body(Admin::show(Message::findOrFail($id)));
+        });
+    }
 
     /**
      * Index interface.

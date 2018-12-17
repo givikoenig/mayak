@@ -72,9 +72,14 @@ class GalleriesController extends Controller
     protected function grid()
     {
         return Admin::grid(Gallery::class, function (Grid $grid) {
-
+            
+             $grid->actions(function ($actions) {
+//                $actions->disableDelete();
+//                $actions->disableEdit();
+                $actions->disableView();
+            });
             $grid->id('ID')->sortable();
-            $grid->img('Общее изображение')->image( asset( 'assets') . '/images/', 100 );
+//            $grid->img('Общее изображение')->image( asset( 'assets') . '/images/', 100 );
             $grid->title('Название галереи')->editable();
             $grid->desc('Краткое описание')->editable();
             $grid->images()->image( asset( 'assets') . '/images/', 100 );
@@ -96,12 +101,14 @@ class GalleriesController extends Controller
     protected function form()
     {
         return Admin::form(Gallery::class, function (Form $form) {
-
+            $form->tools(function (Form\Tools $tools) {
+                $tools->disableView();
+            });
             $form->display('id', 'ID');
-            $form->image('img','Изображение')->fit(Config::get('settings.gallery_image')['width'],
-                        Config::get('settings.gallery_image')['height'])->move('gallery')->name(function($file) {
-                            return now()->format('YmdHi'). '.' . $file->guessExtension();
-                        })->removable();
+//            $form->image('img','Изображение')->fit(Config::get('settings.gallery_image')['width'],
+//                        Config::get('settings.gallery_image')['height'])->move('gallery')->name(function($file) {
+//                            return now()->format('YmdHi'). '.' . $file->guessExtension();
+//                        })->removable();
             $form->text('title','Название галереи');
             $form->text('desc','Краткое описание');
             $form->multipleImage('images','Изображения')->fit(Config::get('settings.gallery_slide_image')['width'],

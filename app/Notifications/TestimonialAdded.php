@@ -43,12 +43,13 @@ class TestimonialAdded extends Notification
      */
     public function toMail($notifiable)
     {
+        $url = url('/admin/site/testimonials/'. $this->testimonial->id . '/edit');
         return (new MailMessage)
                     ->subject('Отзыв на сайте')
                     ->greeting(' ')
                     ->line('На сайте новый отзыв пользователя ' . mb_strtoupper($this->data['sig']) .  ' об отдыхе в доме "У маяка" : ')
                     ->line(' …' . $this->data['text'] . '…')
-                    ->action('Перейти в админку для активации ?', url('/admin/site/testimonials') )
+                    ->action('Перейти в админку для активации ?', $url ) //url('/admin/site/testimonials') )
                     ->salutation('С приветом, я (Дима) !');
     }
 

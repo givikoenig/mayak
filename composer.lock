@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd73eda580c654614617685e4f4a586b",
+    "content-hash": "da60b7785a4d6078760bbcd106de1875",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -591,6 +591,47 @@
                 "validator"
             ],
             "time": "2018-08-16T20:49:45+00:00"
+        },
+        {
+            "name": "ellisthedev/laravel-5-robots",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ellisthedev/laravel-5-robots.git",
+                "reference": "03bdd996efcbf38eb6cc06809f2a46bc31e74173"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ellisthedev/laravel-5-robots/zipball/03bdd996efcbf38eb6cc06809f2a46bc31e74173",
+                "reference": "03bdd996efcbf38eb6cc06809f2a46bc31e74173",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EllisTheDev\\Robots\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Ellis",
+                    "email": "awellis89@gmail.com"
+                }
+            ],
+            "description": "Robots.txt Generator for Laravel 5",
+            "time": "2015-04-30T21:39:08+00:00"
         },
         {
             "name": "encore/laravel-admin",

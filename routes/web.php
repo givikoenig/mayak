@@ -18,19 +18,17 @@
 //     return view('layouts.site');
 // });
 
-Route::get('robots.txt', function() {
-
-    // If on the live server, serve a nice, welcoming robots.txt.
-    if (App::environment() == 'production')
-    {
-        RobotsTxt::addUserAgent('*');
-        RobotsTxt::addSitemap('sitemap.xml');
+Route::get('robots.txt', function ()
+{
+    if (App::environment() == 'production') {
+        // If on the live server, serve a nice, welcoming robots.txt.
+        Robots::addUserAgent('*');
+        Robots::addSitemap('sitemap.xml');
     } else {
         // If you're on any other server, tell everyone to go away.
-        RobotsTxt::addDisallow('*');
+        Robots::addDisallow('*');
     }
-
-    return Response::make(RobotsTxt::generate(), 200, array('Content-Type' => 'text/plain'));
+    return Response::make(Robots::generate(), 200, ['Content-Type' => 'text/plain']);
 });
 
 Route::group(['middleware' => 'web'], function() {

@@ -10,11 +10,22 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Show;
 
 class AboutController extends Controller
 {
     use ModelForm;
 
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
+
+            $content->header('Блок "Обо мне"');
+            $content->description('просмотр');
+            $content->body(Admin::show(About::findOrFail($id)));
+        });
+    }
+    
     /**
      * Index interface.
      *
@@ -25,7 +36,7 @@ class AboutController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('Блок "ОБО МНЕ"');
-            $content->description('СПИСОК ЗАГОТОВОК');
+            $content->description('СПИСОК ЗАГОТОВОК (отображаться будет только та, которая активирована и стоит по списку выше остальных)');
 
             $content->body($this->grid());
         });
@@ -77,7 +88,7 @@ class AboutController extends Controller
             $grid->title('Заголовок')->editable();
             $grid->subtitle('Подзаголовок')->editable();
             $grid->column('text', 'Текст')->display( function($text) {
-                return str_limit($text, 400);
+                return str_limit($text, 380);
             });
 
             $states = [
@@ -85,6 +96,8 @@ class AboutController extends Controller
                 'off' => ['value' => 0, 'text' => 'NO', 'color' => 'default'],
             ];
             $grid->active()->switch($states);
+            $grid->keywords('Ключевики');
+            $grid->meta_desc('Мета описание');
             $grid->created_at();
             $grid->updated_at();
         });
@@ -104,8 +117,12 @@ class AboutController extends Controller
             $form->text('subtitle','Подзаголовок')->rules('max:255');
             $form->ckeditor('text', 'Текст');
             $form->switch('active')->options([1 => 'Активен', 0 => 'Неактивен'])->default(0);
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('keywords', 'Ключи для поиска')->rules('max:255');
+            $form->text('meta_desc', 'Мета описание')->rules('max:255');
+//            $form->display('created_at', 'Created At');
+//            $form->display('updated_at', 'Updated At');
+            $form->datetime('created_at');
+            $form->datetime('updated_at');
         });
     }
 }

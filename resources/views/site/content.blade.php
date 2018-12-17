@@ -1,74 +1,74 @@
 <section id="about">
-  <div class="section-title-2">
-   <div class="container">
-    <h2 class="h1-100-ultra-condensed">Дом&nbsp;&nbsp;на&nbsp;&nbsp;море&nbsp;&nbsp;"У маяка"</h2>
-    <p>-&nbsp;&nbsp;Сосны,&nbsp;&nbsp;тишина&nbsp;&nbsp;и&nbsp;&nbsp;море&nbsp;&nbsp;…&nbsp;&nbsp;- </p>
-   </div>
-  </div>
-  <div class="container"> 
-     <div class="row clearfix">
-    <article class="article">
-    <h3>{{ $about->title }}<span>{{ $about->subtitle }}</span></h3>
-    <div class="text-image">
-      <p>{!! $about->text  !!}</p>
-      </div>
-    </article>
-  
+    <div class="section-title-2">
+        <div class="container">
+            <h2 class="h1-100-ultra-condensed">Дом&nbsp;&nbsp;на&nbsp;&nbsp;море&nbsp;&nbsp;"У маяка"</h2>
+            <p>-&nbsp;&nbsp;Сосны,&nbsp;&nbsp;тишина&nbsp;&nbsp;и&nbsp;&nbsp;море&nbsp;&nbsp;…&nbsp;&nbsp;- </p>
+        </div>
     </div>
+    <div class="container"> 
+        <div class="row clearfix">
+            <article class="article">
+                <h3 class="center">{{ $about->title }}</h3>
+            <h4 class="b0 center">{{ $about->subtitle }}</h4>
+            <div class="text-image">
+              <p>{!! $about->text  !!}</p>
+              </div>
+            </article>
+        </div>
+        <hr> 
 
+        <!-- Carousel items -->
+        @if(!$about_services->isEmpty())
+          <div class="mycont">
+            <ul class="mycarousel thumbs" data-gallery="one">
+                @foreach ($about_services as $service)
+                  <li class="item">
+                    <figure><a href="{{ asset('assets') }}/images/{{ $service->img }}"><div class="icon-hover" ></div><img src="{{ asset('assets') }}/images/{{ $service->img }}" class="scale-with-grid" alt=""></a></figure>
+                    <div class="spacer-2">
+                      <h3>{{ $service->title }} <span>{{ $service->subtitle }}</span></h3>
+                      <p>{{ $service->text }}</p>
+                    </div>
+                  </li>
+                @endforeach
+            </ul>
+          </div>
+        @endif
 
-    <!-- Carousel items -->
-    @if(!$about_services->isEmpty())
-      <div class="mycont">
-        <ul class="mycarousel thumbs" data-gallery="one">
-            @foreach ($about_services as $service)
-              <li class="item">
-                <figure><a href="{{ asset('assets') }}/images/{{ $service->img }}"><div class="icon-hover" ></div><img src="{{ asset('assets') }}/images/{{ $service->img }}" class="scale-with-grid" alt=""></a></figure>
-                <div class="spacer-2">
-                  <h3>{{ $service->title }} <span>{{ $service->subtitle }}</span></h3>
-                  <p>{{ $service->text }}</p>
-                </div>
-              </li>
-            @endforeach
-        </ul>
-      </div>
-    @endif
-
-    <hr>    
+        <hr>    
    
-     <div class="section-title-3">
-     <h3>Прогноз погоды</h3>
-      <p>Погода "У Маяка" сейчас и прогноз на текущую неделю</p>
-    </div>
+        <div class="section-title-3">
+            <h3>Прогноз погоды</h3>
+            <p>Погода "У Маяка" сейчас и прогноз на текущую неделю</p>
+        </div>
 	<div id="weather" class="clearfix"></div>
-</div><!-- End Container --> 
+    </div><!-- End Container --> 
 </section>
 <!-- =========================End About section============================= -->
 
 <!-- Start Background -->
 <section  id="stestimonials">
-<div id="bg-container-2">
-<a href="#about" class="scroll_a"> Наверх</a> <span class="border-top"></span>
-  <div class="bg2"></div>
-  <div class="container" id="otzyvy">
-    <div class="section-title">
-      <h2 class="alltst"><a href="{{route('testimonials')}}" title="Смотреть все отзывы">Отзывы</a></h2>
-    </div>
-    @if(!$testimonials->isEmpty())
-    <article class="twelve columns offset-by-two" >
-      {{-- <a href="{{route('testimonials')}}" title="Смотреть все отзывы"> --}}
-      <div id="testimonials" >
-        <ul >
-          @foreach($testimonials as $item)
-          <li class="alltst"><a href="{{route('testimonials')}}" title="Смотреть все отзывы"><blockquote>{!! str_limit( $item->text, 120 ) !!}</blockquote><cite>{{ $item->sig }}</cite></a> </li>
-          @endforeach
-        </ul>
+    <div id="bg-container-2">
+    <a href="#about" class="scroll_a"> Наверх</a> <span class="border-top"></span>
+      <div class="bg2"></div>
+      <div class="container" id="otzyvy">
+        <div class="section-title">
+          <h2 class="alltst"><a href="{{route('testimonials')}}" title="Смотреть все отзывы">Отзывы</a></h2>
+        </div>
+        @if(!$testimonials->isEmpty())
+        <article class="twelve columns offset-by-two" >
+          {{-- <a href="{{route('testimonials')}}" title="Смотреть все отзывы"> --}}
+          <div id="testimonials" >
+            <ul >
+              @foreach($testimonials as $item)
+              <li class="alltst"><a href="{{route('testimonials')}}" title="Смотреть все отзывы"><blockquote>{!! str_limit( $item->text, 120 ) !!}</blockquote><cite>{{ $item->sig }}</cite></a> </li>
+              @endforeach
+            </ul>
+          </div>
+        </article>
+        @endif
+        <br class="clear">
       </div>
-    </article>
-    @endif
-    <br class="clear">
-  </div>
-</div><!-- End Background -->
+    </div><!-- End Background -->
 </section>
 
 <section class="tst">
@@ -88,7 +88,7 @@
           <br class="clear">
         </fieldset>
         <fieldset>
-          <span><label>Web-сайт</label><input class="reset" name="site_contact" id="site_contact" type="url"/></span>
+          <span><label>Web-сайт (не обязательно)</label><input class="reset" name="site_contact" id="site_contact" type="url"/></span>
           <br class="clear">
         </fieldset>
         <label> Ваш отзыв </label>
@@ -103,9 +103,6 @@
     <div class="cart_result" id="confirm_rez"><p></p></div>
   </div>
 </section>
-
-
-
 
 <!-- =========================Start Rooms section============================= -->
 <section id="rooms" >
@@ -162,11 +159,6 @@
           </article><!-- End Room 1 --> 
         @endforeach
       @endif
-    
-    
-    
-      
-    
   </div>  
 </section>
 <!-- =========================Start Rooms section============================= -->
@@ -239,7 +231,7 @@
                   <br class="clear">
               </fieldset>
               <fieldset>
-                  <span><label>Web-сайт</label><input class="reset" name="site_cont" id="site_cont" type="url"/></span>
+                  <span><label>Web-сайт (не обязательно)</label><input class="reset" name="site_cont" id="site_cont" type="url"/></span>
               <br class="clear">
               </fieldset>
                 <label> Ваше сообщение </label>
@@ -251,9 +243,6 @@
               <button type="submit" class="button_4"  id="submit_cont">Отправить сообщение </button>
             </form>
           </li>
-
-          
-
         </ul>
     </div>
     <div  class="one-third column contacts-r">
@@ -264,8 +253,9 @@
         <li>Калининградская область,</li>
         <li>Зеленоградский район,</li>
         <li>пос.Заостровье</li>
-        <li>+7 906 237 00 31</li>
-        <li><span class="e">dkartsev58 / mail, ru</span> - <a href="{{ route('home') }}">u-mayaka.ru</a></li>
+        <li>Tel: <a href="tel:+79062370031" class="">+7 906 237 00 31</a></li>
+        <li>E-mail: <span class="e">dkartsev58 / mail, ru</span></li>
+        <!--<li><a href="{{ route('home') }}">u-mayaka.ru</a></li>-->
       </ul>
       <h4 id="directions">Где это ?<span>(Введите Ваше местоположение, напр.  Самара. )</span></h4>
         <form action="http://maps.google.com/maps" method="get" target="_blank">
@@ -273,11 +263,6 @@
         <input type="hidden" name="daddr" value="ZAOSTROV'YE, KALININGRAD OBLAST, 238590, RUSSIA" />
         <input type="submit" value="Посмотреть направление" class="button_4" />
     </form>     
-     {{--  <ul class="social-bookmarks clearfix">
-        <li class="facebook"><a href="#">facebook</a></li>
-        <li class="googleplus"><a href="#">googleplus</a></li>
-        <li class="twitter"><a href="#">twitter</a></li>
-      </ul> --}}
     </div>
     <div class="cart_result2" id="confirm_rez2"><p></p></div>
   </div>
