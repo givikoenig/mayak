@@ -225,8 +225,10 @@ input.calendar { background:url(../images/calendar-3.png) no-repeat center right
 
 /* Tablet Portrait size to standard 960 (devices and browsers) ================================== */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-#intro-txt h1 {font-size:50px; }
-#intro-txt h2 {font-size:32px; }
+/*#intro-txt h1 {font-size:50px; }*/
+#intro-txt h1 {font-size:44px; }
+/*#intro-txt h2 {font-size:32px; }*/
+#intro-txt h2 {font-size:28px; }
 select{width:100%;  }
 
 ul.tabs-content.contact { padding:20px 0 15px 35px; }
@@ -282,8 +284,9 @@ a:hover.button_enter, a:hover.button_check {background: #3CF;}
 .section-title-3 h3 { font-size:24px; margin-bottom:0px;  }
 .section-title-3 p {font-size:20px; }
 
-#intro-txt h1 {font-size:30px; margin-bottom:50px; line-height:30px;}
+#intro-txt h1 {font-size:28px; margin-bottom:0;line-height:28px;}
 #intro-txt h2 { display:none;}
+
 #availability-form span, #contact-form span  { float:none; width:100%; display:block; margin-left:2px;}
 #rooms article h3 { margin-top:10px;}
 select{ padding:8px; width:97%;  }
@@ -324,22 +327,28 @@ hr{  margin: 15px 0px 30px 0px }
 	#footer-homepage a {
 		font-size: 12px;
 	}
+        /*.article_image {*/
+            /*max-width: 200px!important;*/
+        /*}*/
 
 }
 .section-title-2 {
 	margin-bottom: 0!important;
 }
 .map-block {
-	height: 0!important;
-	margin-bottom: -10px!important;
+	/*height: 0!important;*/
+	/*margin-bottom: -10px!important;*/
+        width: 100%!important;
+        height: 450px!important;
 }
 
 #map-overlay {
-	position: relative;
-	width: 15%;
+    position: absolute;
+    width: 15%;
     height:370px;
     margin-top:-450px;
-    margin-left: 10%;
+    margin-left: 14%;
+    /*margin-left: 72%;*/
     background-color: rgba(35, 35, 35, 0.81);
     padding:40px;
     color: #fff;
@@ -351,8 +360,9 @@ hr{  margin: 15px 0px 30px 0px }
 @media only screen and (max-width: 679px) {
 	#map-overlay {
 		visibility: hidden;
+                width: 50%;
+                padding: 0;
 	}
-
 }
 .article {
 	margin-top: 30px!important;

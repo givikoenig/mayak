@@ -1,8 +1,9 @@
+{!! NoCaptcha::renderJs() !!}
 <section id="about">
     <div class="section-title-2">
         <div class="container">
-            <h2 class="h1-100-ultra-condensed">Дом&nbsp;&nbsp;на&nbsp;&nbsp;море&nbsp;&nbsp;"У маяка"</h2>
-            <p>-&nbsp;&nbsp;Сосны,&nbsp;&nbsp;тишина&nbsp;&nbsp;и&nbsp;&nbsp;море&nbsp;&nbsp;…&nbsp;&nbsp;- </p>
+            <h2 class="h1-100-ultra-condensed">Дом&nbsp;&nbsp;на&nbsp;&nbsp;море&nbsp;&nbsp;&laquo;У маяка&raquo;</h2>
+            <p>Сосны,&nbsp;тишина&nbsp;и&nbsp;море …</p>
         </div>
     </div>
     <div class="container"> 
@@ -16,7 +17,6 @@
             </article>
         </div>
         <hr> 
-
         <!-- Carousel items -->
         @if(!$about_services->isEmpty())
           <div class="mycont">
@@ -33,18 +33,28 @@
             </ul>
           </div>
         @endif
-
         <hr>    
-   
         <div class="section-title-3">
             <h3>Прогноз погоды</h3>
             <p>Погода "У Маяка" сейчас и прогноз на текущую неделю</p>
         </div>
-	<div id="weather" class="clearfix"></div>
-    </div><!-- End Container --> 
+        <div id="weather" class="clearfix">
+            <i class="wi {{  $currently_weather_icon or '' }}"></i>
+            {{--<i class="wi wi-forecast-io-partly-cloudy-night"></i>--}}
+            <i>{{ ceil($forecast->currently()->temperature()) == 0 ? 0 : ceil($forecast->currently()->temperature()) }}<small>&#8451;</small></i>
+            <ul>
+                @foreach ($forecast->daily()->data() as $key => $dayforecast)
+                    <li>{{ \Jenssegers\Date\Date::parse($dayforecast->time())->format('D, d M') }}:
+                        {{ ceil($dayforecast->temperatureLow()) == 0 ?  0 : ceil($dayforecast->temperatureLow())  }}
+                        &#8451;<br>
+{{--                        {{  $dayforecast->icon() }}>--}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div><!-- End Container -->
 </section>
 <!-- =========================End About section============================= -->
-
 <!-- Start Background -->
 <section  id="stestimonials">
     <div id="bg-container-2">
@@ -125,7 +135,6 @@
           </article>
         @endforeach
       @endif
-
       <!-- Start Room 1 -->
       @if(!$rooms->isEmpty())
         @foreach($rooms as $room)
@@ -135,25 +144,22 @@
               <div class="flexslider thumbs" data-gallery="two">
                 <ul class="slides">
                   @foreach ($room->images as $image)
-                  <li><figure><a href="{{ asset('assets') }}/images/{{ $image }}"><div class="icon-hover" ></div><img src="{{ asset('assets') }}/images/{{ $image }}" alt=""></a></figure><p class="flex-caption"></p></li>
+                  <li><figure><a href="{{ asset('assets') }}/images/{{ $image }}"><div class="icon-hover" ></div><img src="{{ asset('assets') }}/images/{{ $image }}" alt=""></a></figure></li>
                   @endforeach
                 </ul>
-                <span class=""><small></small><em></em></span></div>
-                <!-- end flexi--> 
+                <span class=""><small></small><em></em></span>
+              </div><!-- end flexi--> 
+              @endif
             </div>
-            @endif
-            
             <div class="nine columns omega">
               <div class="spacer-3">
                 <h3>{{ $room->title }}<span>{{ $room->subtitle }}</span></h3>
                 <p>{!! $room->text !!}</p>
-
                 <ul class="room_facilities">
                   @foreach($room->icons as $icon)
-                  <li class="{{ $icon }}"><a class="tooltip_1" href="#" title="{{ $services[$icon] }}">{{ $services[$icon] }}</a></li>
+                  <li class="{{ $icon }}"><a class="tooltip_1" href="javascript: void(0)" title="{{ $services[$icon] }}">{{ $services[$icon] }}</a></li>
                   @endforeach
                 </ul>
-
               </div>
             </div>
           </article><!-- End Room 1 --> 
@@ -161,8 +167,7 @@
       @endif
   </div>  
 </section>
-<!-- =========================Start Rooms section============================= -->
-
+<!-- =========================End Rooms section============================= -->
 
 <!-- Start Background -->
 <section id="gallery">
@@ -189,13 +194,10 @@
   </div>
   <div class="container">
     <div  class="two-thirds column msg"><br>
-      {{-- <h4>Написать сообщение</h4> --}}
-        <ul class="tabs">
-        <!-- Give href an ID value of corresponding "tabs-content" <li>'s -->
+        <ul class="tabs callback">
             <li><a class="active" href="#firstab-2">Заказать обратный звонок</a></li>
             <li><a href="#firstab-1">Написать сообщение</a></li>
         </ul>
-
         <ul class="tabs-content contact">
           <li class="active" id="firstab-2">
             <div id="callback"></div>
@@ -209,16 +211,14 @@
                 <span><label> Телефон (не публикуется) (обязательно)</label><input class="reset" name="phone_callback" id="phone_callback" type="tel"/></span>
                   <br class="clear">
               </fieldset>
-              <fieldset>
+              <fieldset class="abnorm">
                   {!! NoCaptcha::display() !!}
                   <br class="clear">
               </fieldset>
               <button type="submit" class="button_4"  id="submit_callback">Отправить заявку </button>
             </form>
           </li>
-
           <li id="firstab-1">
-
             <div id="message-cont"></div>
             <form method="post" action="{{route('home')}}/sendmsg" id="cont-form">
               {{ csrf_field() }}
@@ -236,7 +236,7 @@
               </fieldset>
                 <label> Ваше сообщение </label>
                 <textarea class="reset" name="message_cont" id="message_cont"></textarea><br>
-                <fieldset>
+                <fieldset class="abnorm">
                   {!! NoCaptcha::display() !!}
                   <br class="clear">
                 </fieldset>
@@ -255,7 +255,6 @@
         <li>пос.Заостровье</li>
         <li>Tel: <a href="tel:+79062370031" class="">+7 906 237 00 31</a></li>
         <li>E-mail: <span class="e">dkartsev58 / mail, ru</span></li>
-        <!--<li><a href="{{ route('home') }}">u-mayaka.ru</a></li>-->
       </ul>
       <h4 id="directions">Где это ?<span>(Введите Ваше местоположение, напр.  Самара. )</span></h4>
         <form action="http://maps.google.com/maps" method="get" target="_blank">

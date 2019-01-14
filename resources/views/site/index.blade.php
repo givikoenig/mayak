@@ -15,3 +15,7 @@
 @section('slides')
 	@include('site.slides')
 @endsection
+
+@section('scripts')
+    @include('site.scripts')
+@endsection

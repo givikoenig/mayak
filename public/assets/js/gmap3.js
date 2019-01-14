@@ -69,7 +69,7 @@
           ImageMapType      : google.maps.ImageMapType
         },
         map: {
-          mapTypeId : google.maps.MapTypeId.ROADMAP,
+          mapTypeId : google.maps.MapTypeId.HYBRID,
           center: [46.578498, 2.457275],
           zoom: 2
         },

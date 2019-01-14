@@ -36,7 +36,7 @@ class GalleryController extends Controller
             $slides_str .= "$.supersized({\n";
             $slides_str .= "slideshow : 1,\n";
             $slides_str .= "autoplay : 1,\n";
-            $slides_str .= "slide_interval : 3000,\n";
+            $slides_str .= "slide_interval : 5000,\n";
             $slides_str .= "transition : 3,\n";
             $slides_str .= "transition_speed : 700,\n";
             $slides_str .= "slides : [\n";

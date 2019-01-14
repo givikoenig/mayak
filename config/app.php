@@ -176,7 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        EllisTheDev\Robots\RobotsServiceProvider::class
+        EllisTheDev\Robots\RobotsServiceProvider::class,
+        Cornford\Googlmapper\MapperServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
 
     ],
 
@@ -227,7 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Robots' => EllisTheDev\Robots\RobotsFacade::class,
-
+        'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+        'Date' => Jenssegers\Date\Date::class,
     ],
 
 ];

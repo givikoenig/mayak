@@ -11,13 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', function () {
-//     return view('layouts.site');
-// });
-
 Route::get('robots.txt', function ()
 {
     if (App::environment() == 'production') {
@@ -32,13 +25,11 @@ Route::get('robots.txt', function ()
 });
 
 Route::group(['middleware' => 'web'], function() {
-	
 	Route::get('/', ['uses'=>'IndexController@execute', 'as'=>'home']);
 	Route::resource('slide','SlideController',['only'=>'index']);
 	Route::resource('addotzyv', 'OtzyvController', ['only'=> 'store']);
 	Route::resource('sendmsg', 'MsgController', ['only'=> 'store']);
 	Route::resource('callback', 'CallbackController', ['only'=> 'store']);
-	// Route::get('/slides', ['uses'=>'Slides@execute', 'as'=>'slides']);
 	Route::get('/gallery', ['uses'=>'GalleryController@execute', 'as'=>'gallery']);
 	Route::match(['get','post'], '/testimonials', ['uses'=>'TestimonialsController@execute', 'as'=>'testimonials']);
 });

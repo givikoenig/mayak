@@ -7,3 +7,59 @@
 .jcarousel-prev, .jcarousel-next {
     z-index: 40;
 }
+/*.article_image {*/
+  /*width: 300px;*/
+/*}*/
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    #intro-txt {
+        margin-top: -130px;
+    }
+    #intro-txt h1 {
+        font-size: 34px;
+    }
+}
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .links-home {
+        margin-top: 0px;
+    }
+    #intro-txt {
+        margin-top: -80px;
+    }
+    #intro-txt h1 {
+        font-size: 22px;
+    }
+    #intro-txt h2 {
+        display: block;
+        font-size: 20px;
+        margin-bottom: -15px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .section-title-2 h2 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+    #intro-txt {
+        margin-top: -80px;
+    }
+    #intro-txt h1 {
+        font-size: 20px;
+    }
+    #intro-txt h2 {
+        display: block;
+        font-size: 18px;
+    }
+    .abnorm div,
+    .abnorm iframe {
+        width: 250px!important;
+    }
+    .callback li a {
+        width: 170px!important;
+    }
+    .article_image {
+        width: 100%!important;
+        height: auto;
+    }
+
+}

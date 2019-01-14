@@ -22,10 +22,8 @@ class MsgController extends Controller
      */
     public function store(Request $request)
     {
-        //
 
-        $input = $request->except('_token');
-// 
+          $input = $request->except('_token');
           $rules = array (
             'name_cont' => 'required|max:100',
             'email_cont' => 'required|email',

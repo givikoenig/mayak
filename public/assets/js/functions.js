@@ -51,7 +51,12 @@ $('.tooltip_1').poshytip({
 Flexslider
 --------------------------------------------------------*/
 $(window).load(function() {
-			$('.flexslider').flexslider();
+			$('.flexslider').flexslider({
+                            slideshow: true, //Включение автопроигрывания слайдшоу (true/false)
+                            animation: "fade",  //Выбор типа анимации (fade/slide)
+                            pauseOnHover: true, //Включение паузы слайдшоу при наведении курсора мыши 
+                            slideshowSpeed: 5000 
+                        });
 		});		
 		
 /*--------------------------------------------------------

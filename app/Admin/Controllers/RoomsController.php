@@ -134,6 +134,11 @@ class RoomsController extends Controller
                 'pet' => 'Разрешено проживание с домашними животными',
                 'air-warm' => 'Круглогодичное отопление',
                 'air-cold' => 'Воздушный кондиционер - охлаждение',
+                'safe' => 'Сейф',
+                'bath' => 'Ванная',
+                'loundry' => 'Прачечная',
+                'parking' => 'Парковка',
+                'swimming' => 'Пляж в 150 метрах'
             ];
             $form->multipleSelect('icons', 'Иконки')->options($icons);
             $form->switch('active')->options([1 => 'Активен', 0 => 'Неактивен'])->default(0);
