@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CahngeAboutMainTable extends Migration
+class ChangeHeaderMain extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CahngeAboutMainTable extends Migration
      */
     public function up()
     {
-        Schema::table('about_main', function (Blueprint $table) {
-            $table->string('keywords')->nullable();
-            $table->string('meta_desc')->nullable();
+        Schema::table('header_main', function (Blueprint $table) {
+            $table->string('title2')->nullable();
+            $table->string('title3')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class CahngeAboutMainTable extends Migration
      */
     public function down()
     {
-        Schema::table('about_main', function (Blueprint $table) {
+        Schema::table('header_main', function (Blueprint $table) {
             //
         });
     }

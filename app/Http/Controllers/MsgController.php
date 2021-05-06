@@ -28,6 +28,7 @@ class MsgController extends Controller
             'name_cont' => 'required|max:100',
             'email_cont' => 'required|email',
             'message_cont' => 'required',
+            'website' => 'max:0',
             );      
 
          $validator = Validator::make(Input::all(), $rules);

@@ -40,14 +40,13 @@
         </div>
         <div id="weather" class="clearfix">
             <i class="wi {{  $currently_weather_icon or '' }}"></i>
-            {{--<i class="wi wi-forecast-io-partly-cloudy-night"></i>--}}
+            <i class="wi wi-forecast-io-partly-cloudy-night"></i>
             <i>{{ ceil($forecast->currently()->temperature()) == 0 ? 0 : ceil($forecast->currently()->temperature()) }}<small>&#8451;</small></i>
             <ul>
                 @foreach ($forecast->daily()->data() as $key => $dayforecast)
                     <li>{{ \Jenssegers\Date\Date::parse($dayforecast->time())->format('D, d F') }}:
                         {{ ceil($dayforecast->temperatureLow()) == 0 ?  0 : ceil($dayforecast->temperatureLow())  }}
                         &#8451;<br>
-{{--                        {{  $dayforecast->icon() }}>--}}
                     </li>
                 @endforeach
             </ul>

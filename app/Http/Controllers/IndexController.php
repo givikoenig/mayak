@@ -10,6 +10,7 @@ use Jenssegers\Date\Date;
 
 use App\Slide;
 use App\About;
+use App\Header;
 use App\AboutServices;
 use App\Tariff;
 use App\Room;
@@ -38,25 +39,20 @@ class IndexController extends Controller
 
             $slides_str = $this->getSlidesString();
             $about = About::where('active', 1)->first();
+            $main_header = Header::where('active', 1)->first();
             $about_services = AboutServices::where('active', 1)->orderBy('created_at', 'desc')->get();
             $tariffs = Tariff::where('active', 1)->get();
             $rooms = Room::where('active', 1)->get();
             $services = $this->getServicesIcons();
             $testimonials = Testimonial::where('active', 1)->orderBy('created_at','desc')->get();
             $weather = $this->getWeather();
+//            dd($weather);
             $this->meta_desc = $about->meta_desc;
             $this->keywords = $about->keywords;
             $this->description = $about->desc;
 
-
-            $fweather = DarkSkyApi::location(54.960, 20.269)
-                ->units('si')
-                ->language('ru')
-                ->forecast()->daily();
-
-//            dd($fweather );
-
             return view('site.index', [
+                'main_header' => $main_header,
                 'about' => $about,
                 'about_services' => $about_services,
                 'slides_str' => $slides_str,

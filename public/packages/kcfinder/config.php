@@ -35,7 +35,7 @@ $_CONFIG = array(
 
     'theme' => "oxygen",
 
-    'uploadURL' => "http://u-mayaka.givik.ru/userfiles/upload",
+    'uploadURL' => "http://u-mayaka.ru/userfiles/upload",
     'uploadDir' => "",
 
     'dirPerms' => 0755,

@@ -19,8 +19,8 @@
         </div>
     </header>
     <div id="intro-txt">
-      <h1  class="h1-100-ultra-condensed">Дом на море <br /> &laquo;У Маяка&raquo; <br /> Аренда</h1>
-      <h2>8000 руб/сутки на 8 человек</h2>
+      <h1  class="h1-100-ultra-condensed">{{ $main_header->title }} <br /> {{ $main_header->title2 }} <br /> {{ $main_header->title3 }}</h1>
+      <h2>{{ $main_header->subtitle }}</h2>
       <div class="links-home"> <a href="#about" class="button_enter">На сайт</a><a href="#contact" class=" button_check">Обратный звонок</a></div>
     </div><!-- End intro text --> 
     <a id="prevslide" class="load-item"></a> <a id="nextslide" class="load-item"></a>

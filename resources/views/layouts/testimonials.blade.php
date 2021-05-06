@@ -7,14 +7,15 @@
 <!-- Basic Page Needs -->
 <meta charset="utf-8">
 <title>{{ $title or 'ДОМ НА МОРЕ "У МАЯКА"' }}</title>
-<meta name="description" content="Гостевой дом на Балтийском побережье 'У маяка': аренда, 7000 руб/сутки на 8 человек. Сосны, море, тишина">
+<meta name="description" content="Гостевой дом на Балтийском побережье 'У маяка': аренда, 8000 руб/сутки на 8 человек. Сосны, море, тишина">
 
 
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS -->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+{{--<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">--}}
+<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/css/skeleton.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/css/base.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/css/layout.css') }}"/>

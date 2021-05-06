@@ -12,6 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('site/slides', SlideController::class);
+    $router->resource('site/headers', HeaderController::class);
     $router->resource('site/about', AboutController::class);
     $router->resource('site/aboutservices', AboutServicesController::class);
     $router->resource('site/tariffs', TariffsController::class);

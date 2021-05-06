@@ -7,9 +7,8 @@
 .jcarousel-prev, .jcarousel-next {
     z-index: 40;
 }
-/*.article_image {*/
-  /*width: 300px;*/
-/*}*/
+form .website{ display:none; } /* hide because is spam protection */
+
 @media only screen and (min-width: 768px) and (max-width: 959px) {
     #intro-txt {
         margin-top: -130px;
@@ -58,7 +57,8 @@
         width: 170px!important;
     }
     .article_image {
-        width: 100%!important;
+        /*width: 100%!important;*/
+        max-width: 310px;
         height: auto;
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CahngeAboutServicesTable extends Migration
+class CreateHeaderMainTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CahngeAboutServicesTable extends Migration
      */
     public function up()
     {
-        Schema::table('about_services', function (Blueprint $table) {
+        Schema::table('header_main', function (Blueprint $table) {
+           // $table->increments('id');
+            $table->string('title')->nullable();
+            $table->string('subtitle')->nullable();
             $table->unsignedTinyInteger('active')->nullable()->default(0);
+            $table->timestamps();
         });
     }
 
@@ -25,7 +29,7 @@ class CahngeAboutServicesTable extends Migration
      */
     public function down()
     {
-        Schema::table('about_services', function (Blueprint $table) {
+        Schema::table('header_main', function (Blueprint $table) {
             //
         });
     }

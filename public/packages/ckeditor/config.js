@@ -8,11 +8,11 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 
-	config.filebrowserBrowseUrl = 'http://u-mayaka.givik.ru/packages/kcfinder/browse.php?opener=ckeditor&type=files';
-        config.filebrowserImageBrowseUrl = 'http://u-mayaka.givik.ru/packages/kcfinder/browse.php?opener=ckeditor&type=images';
-        config.filebrowserFlashBrowseUrl = 'http://u-mayaka.givik.ru/packages/kcfinder/browse.php?opener=ckeditor&type=flash';
-        config.filebrowserUploadUrl = 'http://u-mayaka.givik.ru/packages/kcfinder/upload.php?opener=ckeditor&type=files';
-        config.filebrowserImageUploadUrl = 'http://u-mayaka.givik.ru/packages/kcfinder/upload.php?opener=ckeditor&type=images';
-        config.filebrowserFlashUploadUrl = 'http://u-mayaka.givik.ru/packages/kcfinder/upload.php?opener=ckeditor&type=flash';
+	config.filebrowserBrowseUrl = 'http://u-mayaka.ru/packages/kcfinder/browse.php?opener=ckeditor&type=files';
+        config.filebrowserImageBrowseUrl = 'http://u-mayaka.ru/packages/kcfinder/browse.php?opener=ckeditor&type=images';
+        config.filebrowserFlashBrowseUrl = 'http://u-mayaka.ru/packages/kcfinder/browse.php?opener=ckeditor&type=flash';
+        config.filebrowserUploadUrl = 'http://u-mayaka.ru/packages/kcfinder/upload.php?opener=ckeditor&type=files';
+        config.filebrowserImageUploadUrl = 'http://u-mayaka.ru/packages/kcfinder/upload.php?opener=ckeditor&type=images';
+        config.filebrowserFlashUploadUrl = 'http://u-mayaka.ru/packages/kcfinder/upload.php?opener=ckeditor&type=flash';
 
 };

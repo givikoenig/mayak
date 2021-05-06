@@ -7,7 +7,7 @@
 <!-- Basic Page Needs -->
 <meta charset="utf-8">
 <title>{{ $title or 'ДОМ НА МОРЕ "У МАЯКА"' }}</title>
-<meta name="description" content="Гостевой дом на Балтийском побережье 'У маяка': аренда, 7000 руб/сутки на 8 человек. Сосны, море, тишина">
+<meta name="description" content="Гостевой дом на Балтийском побережье 'У маяка': аренда, 8000 руб/сутки на 8 человек. Сосны, море, тишина">
 
 <!-- Mobile Specific Metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,7 +18,6 @@
 <link rel="stylesheet" href="{{ asset('assets/css/layout.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/css/supersized.css') }}"/>
 <link rel="stylesheet" href="{{ asset('assets/css/supersized.shutter.css') }}"/>
-
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
